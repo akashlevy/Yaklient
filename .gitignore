@@ -55,3 +55,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# User IDs
+userids
+
+# Settings
+settings.py
