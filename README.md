@@ -1,2 +1,2 @@
-# yaklient
-A Python library for interacting with Yik Yak
+# Yaklient
+A Python library for interacting with Yik Yak's API
