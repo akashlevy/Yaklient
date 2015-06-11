@@ -61,3 +61,6 @@ userids
 
 # Settings
 settings.py
+
+# Charles Proxy Captures
+captures/
