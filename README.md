@@ -1,5 +1,5 @@
 # Yaklient
-![Logo](https://raw.githubusercontent.com/akashlevy/Yaklient/master/ext/yaklient-logo.svg "Logo")
+![Logo](https://raw.githubusercontent.com/akashlevy/Yaklient/master/ext/yaklient-logo.png "Logo")
 ![Docs](https://img.shields.io/badge/docs-latest-brightgreen.svg "Docs")
 ![License](https://img.shields.io/badge/license-MIT-blue.svg "License")
 Yaklient is an intuitive Python library for interacting with Yik Yak's API.
