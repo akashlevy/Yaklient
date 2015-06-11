@@ -7,11 +7,11 @@ Yaklient is an intuitive Python library for interacting with Yik Yak's API.
 
 ![Logo](https://raw.githubusercontent.com/akashlevy/Yaklient/master/ext/yaklient-logo.png "Logo")
 
-## Example Usage
+### Example Usage
 
-## More things
+### More things
 
-## Dependencies
+### Dependencies
 
 - [Python 2.7](https://www.python.org/downloads/)
 - [requests](https://github.com/kennethreitz/requests)
