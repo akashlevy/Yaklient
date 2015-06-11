@@ -12,25 +12,25 @@ from yaklient.objects.location import Location
 
 
 # Session for requests
-session = Session()
-get = session.get
+SESSION = Session()
+GET = SESSION.get
 
 
 def get_sites():
     """Return list of websites that are allowed"""
-    response = get(settings.ALLOWED_SITES_URL)
+    response = GET(settings.ALLOWED_SITES_URL)
     try:
         return response.json()
     except ValueError:
         raise ParsingResponseError("Failed to get allowed websites", response)
-    
+
 
 def get_config():
     """Return list of websites that are allowed"""
     key_list = ["yikYakRepApplicationConfiguration", "endpoints",
                 "threat_checks", "default_endpoint", "shareThreshold"]
     try:
-        response = get(settings.CONFIG_URL)
+        response = GET(settings.CONFIG_URL)
         # Make sure all necessary keys are in dict
         if all(key in response.json()["configuration"] for key in key_list):
             return response.json()["configuration"]
@@ -38,7 +38,7 @@ def get_config():
             raise ParsingResponseError("Config settings missing", response)
     except ValueError:
         raise ParsingResponseError("Failed to get config settings", response)
-    
+
 
 def get_user_agent(append_yikyak_version=True):
     """Return the user agent to use for Yik Yak API queries"""
@@ -58,11 +58,11 @@ def randomize_user_agent():
     settings.VM_VERSION = choice(settings.VM_VERSIONS)
     settings.ANDROID_VERSION = choice(settings.ANDROID_VERSIONS)
     settings.DEVICE = choice(settings.DEVICES)
-    
+
     # Build is random alphanumeric sequence with randomly chosen length
-    BUILD = ""
+    settings.BUILD = ""
     for _ in range(choice(settings.BUILD_STRING_LENGTHS)):
-        BUILD += choice(ascii_uppercase + digits)
+        settings.BUILD += choice(ascii_uppercase + digits)
 
 
 def randomize_endpoint():
@@ -86,7 +86,7 @@ def locationize_endpoint(location):
                 settings.YIKYAK_ENDPOINT = endpoint["url"]
                 return
     settings.YIKYAK_ENDPOINT = get_default_endpoint()
-    
+
 
 def get_endpoints():
     """Return list of endpoints from Yik Yak server"""
@@ -110,14 +110,14 @@ def get_threat_checks():
     """Return a list of threat checks from Yik Yak server"""
     conf = get_config()
     return conf["threat_checks"]
-    
-    
+
+
 def check_threats(message):
     """Return list of threats found in message"""
     threats = []
     for threat_check in get_threat_checks():
         for expression in threat_check["expressions"]:
-            if re.search(expression, message, re.I|re.U):
+            if re.search(expression, message, re.I | re.U):
                 del threat_check["expressions"]
                 threats += [threat_check]
                 break

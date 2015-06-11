@@ -15,7 +15,7 @@ class Comment(Message):
         self.comment_id = raw["commentID"]
         try:
             self.gmt = raw["gmt"]
-        except:
+        except KeyError:
             self.gmt = None
         try:
             self.back_id = raw["backID"]

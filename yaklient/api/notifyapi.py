@@ -9,15 +9,15 @@ from yaklient import settings
 
 
 # Session for requests
-session = Session()
-request = session.request
+SESSION = Session()
+REQUEST = SESSION.request
 
 
 def get_all_for_user(user_id):
     """Return raw response data for all notifications of user (ID: user_id)"""
     url = urljoin(settings.NOTIFY_ENDPOINT, "getAllForUser/")
     url = urljoin(url, user_id)
-    return request("GET", url)
+    return REQUEST("GET", url)
 
 
 def update_batch(notification_ids, status, user_id):
@@ -29,4 +29,4 @@ def update_batch(notification_ids, status, user_id):
             "userID": user_id
             }
     url = urljoin(settings.NOTIFY_ENDPOINT, "updateBatch/")
-    return request("POST", url, data=json.dumps(data))
+    return REQUEST("POST", url, data=json.dumps(data))

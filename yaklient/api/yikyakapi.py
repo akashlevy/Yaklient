@@ -13,8 +13,8 @@ from yaklient.helper import generate_id, hash_msg
 
 
 # Session for requests
-session = Session()
-request = session.request
+SESSION = Session()
+REQUEST = SESSION.request
 
 
 def _send(method, url, endpoint, params, data=None):
@@ -31,7 +31,7 @@ def _send(method, url, endpoint, params, data=None):
         data = sorted(data + params)
     user_agent = get_user_agent()
     headers = {"User-Agent": user_agent, "Accept-Encoding": "gzip"}
-    return request(method, url, params=params, data=data, headers=headers)
+    return REQUEST(method, url, params=params, data=data, headers=headers)
 
 
 def register_user(user):
@@ -367,7 +367,8 @@ def submit_peek_message(user, message, peek_id, handle=None, btp=0):
             ("peekID", peek_id)]
     if handle:
         data += [("hndl", handle)]
-    return _send("POST", settings.YIKYAK_ENDPOINT, "submitPeekMessage", params, data)
+    return _send("POST", settings.YIKYAK_ENDPOINT, "submitPeekMessage",
+                 params, data)
 
 
 def contact_us(user, message, category, email):
@@ -393,8 +394,9 @@ def get_basecamps(user):
 def save_basecamp(user, name, location):
     """Return raw response data from saving a basecamp"""
     params = [("userID", user.user_id)]
-    data = [("bcLat", user.location.latitude),
-            ("bcLong", user.location.longitude),
+    data = [("bcLat", location.latitude),
+            ("bcLong", location.longitude),
             ("bcName", name),
             ("bcPeekId", 0)]
-    return _send("POST", settings.BASECAMP_ENDPOINT, "saveBasecamp", params, data)
+    return _send("POST", settings.BASECAMP_ENDPOINT, "saveBasecamp", params,
+                 data)

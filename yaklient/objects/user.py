@@ -8,7 +8,7 @@ from yaklient.api import notifyapi, parseapi, yikyakapi
 from yaklient.objects.comment import Comment
 from yaklient.objects.location import Location
 from yaklient.objects.message import Message
-from yaklient.objects.notification import Notification
+from yaklient.objects.notification import Notification, check_notif_error
 from yaklient.objects.peeklocation import PeekLocation
 from yaklient.objects.yak import Yak
 from yaklient.config import locationize_endpoint
@@ -46,7 +46,7 @@ class User(object):
     def __str__(self):
         """Return user (user ID) as string"""
         return "User(%s) at %s" % (self.user_id, str(self.location))
-    
+
     def _convert_to_comment_id(self, comment, yak):
         """Return comment_id and message_id from comment and yak"""
         # Get message_id from yak
@@ -66,7 +66,7 @@ class User(object):
             return comment_id, message_id
         except NameError:
             raise NameError("No Yak specified")
-    
+
     @staticmethod
     def _convert_to_message_id(yak):
         """Return message_id from yak"""
@@ -80,7 +80,7 @@ class User(object):
         else:
             raise TypeError("yak is not Message/string: " + str(yak))
         return message_id
-    
+
     @staticmethod
     def _convert_to_peek_id(peek):
         """Return peek_id from peek"""
@@ -132,7 +132,7 @@ class User(object):
         elif yaks[0].message_id == settings.TOO_CLOSE_TO_SCHOOL_MESSAGE_ID:
             raise TooCloseToSchoolException("School nearby/invalid location")
         return yaks
-        
+
     def _validate_basecamp(self, basecamp):
         """Raise error if basecamp is True but user has not set basecamp"""
         if basecamp and not self.basecamp_set:
@@ -195,7 +195,7 @@ class User(object):
         """Return a list of other peek locations"""
         raw = yikyakapi.get_messages(self, self.location)
         return self._get_peek_location_list(raw, "otherLocations")
-        
+
     def get_peek_yaks(self, location):
         """Return a list of Yaks at particular location/peek location"""
         # If location is a PeekLocation, use get_peek_messages
@@ -236,7 +236,7 @@ class User(object):
         """Return a list of top Yaks in the area"""
         raw = yikyakapi.get_area_tops(self)
         return self._get_yak_list(raw)
-    
+
     def get_comment(self, comment, yak=None, basecamp=False):
         """Return comment on a Yak (or None if it does not exist, optionally
         at basecamp)"""
@@ -281,20 +281,20 @@ class User(object):
         successful, False if unsuccessful"""
         self._validate_basecamp(basecamp)
         message_id = self._convert_to_message_id(yak)
-        liked = self.get_message(self, message_id).liked
+        liked = self.get_yak(message_id).liked
         yikyakapi.like_message(self, message_id, basecamp)
         self.update()
-        return self.get_message(self, message_id).text != liked
+        return self.get_yak(message_id).text != liked
 
     def downvote_yak(self, yak, basecamp=False):
         """Downvote/undownvote a Yak (optionally at basecamp). Return True if
         successful, False if unsuccessful"""
         self._validate_basecamp(basecamp)
         message_id = self._convert_to_message_id(yak)
-        liked = self.get_message(self, message_id).liked
+        liked = self.get_yak(message_id).liked
         yikyakapi.downvote_message(self, message_id, basecamp)
         self.update()
-        return self.get_message(self, message_id).liked != liked
+        return self.get_yak(message_id).liked != liked
 
     def upvote_comment(self, comment, yak=None, basecamp=False):
         """Upvote/unupvote a comment (optionally at basecamp). Return True if
@@ -337,7 +337,8 @@ class User(object):
         """Report a comment for reason (optionally at basecamp)"""
         self._validate_basecamp(basecamp)
         (comment_id, message_id) = self._convert_to_comment_id(comment, yak)
-        yikyakapi.report_comment(self, comment_id, message_id, reason, basecamp)
+        yikyakapi.report_comment(self, comment_id, message_id, reason,
+                                 basecamp)
 
     def delete(self, message, basecamp=False):
         """Delete a message (Yak/comment, optionally at basecamp). Return True
@@ -373,6 +374,7 @@ class User(object):
         once loaded (or None if not posted)"""
         self._validate_basecamp(basecamp)
         raw = yikyakapi.send_message(self, message, handle, btp, basecamp)
+        # Yaks only post if get_messages is called directly after
         yikyakapi.get_messages(self, self.location, basecamp=basecamp)
         self.update()
         # If success is reported
@@ -391,6 +393,7 @@ class User(object):
         self._validate_basecamp(basecamp)
         message_id = self._convert_to_message_id(yak)
         raw = yikyakapi.post_comment(self, comment, message_id, btp, basecamp)
+        # Comments only post properly if get_comments is called directly after
         yikyakapi.get_comments(self, message_id, basecamp=basecamp)
         self.update()
         # If success is reported
@@ -409,37 +412,33 @@ class User(object):
         yikyakapi.submit_peek_message(self, message, peek_id, handle, btp)
 
     def contact_yikyak(self, message, category, email):
-        """Send Yik Yak a message in particular category with specified email"""
+        """Send Yik Yak a message in particular category with specified
+        email"""
         yikyakapi.contact_us(self, message, category, email)
 
     def get_notifications(self):
         """Get all notifications for user"""
         raw = notifyapi.get_all_for_user(self.user_id)
         return self._get_notification_list(raw)
-    
+
     def _mark_notifications(self, status):
         """Mark all notifications for user as read"""
         notif_ids = [notif.notif_id for notif in self.get_notifications()]
-        raw = notifyapi.update_batch(notif_ids, status, self.user.user_id)
-        try:
-            if raw.json()["error"] != {}:
-                return False
-            else:
-                return True
-        except (KeyError, ValueError):
-            raise ParsingResponseError("Error marking notification", raw)
-    
+        raw = notifyapi.update_batch(notif_ids, status, self.user_id)
+        check_notif_error(raw)
+
     def mark_notifications_read(self):
         """Mark all notifications for user as read"""
         return self._mark_notifications("read")
-    
+
     def mark_notifications_unread(self):
         """Mark all notifications for user as unread"""
         return self._mark_notifications("unread")
-    
+
     def set_basecamp(self, name, location=None):
         """Set the basecamp to location with name. Return True if successful,
         False if unsuccessful"""
+        # Set location if not None, otherwise set to user's location
         location = location if location else self.location
         raw = yikyakapi.save_basecamp(self, name, location)
         self.update()

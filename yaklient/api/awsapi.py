@@ -2,7 +2,7 @@
 
 """An API for performing image uploads with Amazon Web Services"""
 
-from email.Utils import formatdate
+from email.utils import formatdate
 from requests import Session
 from requests.auth import AuthBase
 from urllib import urlencode
@@ -12,8 +12,8 @@ from yaklient.helper import generate_id, hash_msg
 
 
 # Session for requests
-session = Session()
-request = session.request
+SESSION = Session()
+REQUEST = SESSION.request
 
 
 def _new_object(object_name):
@@ -21,7 +21,7 @@ def _new_object(object_name):
     object_name)"""
     url = urljoin(settings.AWS_UPLOAD_ENDPOINT, "upload") + '?'
     url += urlencode({"s3_object_name": object_name})
-    return request("GET", url)
+    return REQUEST("GET", url)
 
 
 def upload_image(image):
@@ -35,7 +35,7 @@ def upload_image(image):
     auth = AWSAuth(settings.AWS_ACCESS_KEY, settings.AWS_SECRET_KEY,
                    settings.AWS_BUCKET, object_name)
     files = {"file": image}
-    return request("POST", url, files=files, auth=auth)
+    return REQUEST("POST", url, files=files, auth=auth)
 
 
 class AWSAuth(AuthBase):

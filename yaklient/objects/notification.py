@@ -6,6 +6,18 @@ from yaklient.api import notifyapi
 from yaklient.helper import emoji_remove, ParsingResponseError
 
 
+def check_notif_error(raw):
+    """Make sure the raw response from manipulating notifications does not
+    contain an error"""
+    try:
+        if raw.json()["error"] != {}:
+            return False
+        else:
+            return True
+    except (KeyError, ValueError):
+        raise ParsingResponseError("Error marking notifications", raw)
+
+
 class Notification(object):
     """A notification from Yik Yak"""
     def __init__(self, raw, user):
@@ -40,20 +52,14 @@ class Notification(object):
         """Return notifications as string"""
         string = "Notification subject: %s (%s)\n%s"
         return string % (self.subject, self.status, emoji_remove(self.body))
-    
+
     def _mark(self, status):
         """Mark the notification with status on the notify server. Return
         True if no error, False if error in response"""
         notif_id = self.notif_id
         user_id = self.user.user_id
         raw = notifyapi.update_batch([notif_id], status, user_id)
-        try:
-            if raw.json()["error"] != {}:
-                return False
-            else:
-                return True
-        except (KeyError, ValueError):
-            raise ParsingResponseError("Error marking notification", raw)
+        return check_notif_error(raw)
 
     def mark_read(self):
         """Mark the notification as read locally and on the notify server.

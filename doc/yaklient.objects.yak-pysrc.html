@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>yaklient.objects.yak</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yaklient-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="yaklient-module.html">Package&nbsp;yaklient</a> ::
+        <a href="yaklient.objects-module.html">Package&nbsp;objects</a> ::
+        Module&nbsp;yak
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="yaklient.objects.yak-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="yaklient.objects.yak-module.html">Module yaklient.objects.yak</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">"""Class for a post on Yik Yak"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package yaklient=yaklient-module.html"><a title="yaklient" class="py-name" href="#" onclick="return doclink('link-0', 'yaklient', 'link-0');">yaklient</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module yaklient.helper=yaklient.helper-module.html"><a title="yaklient.helper" class="py-name" href="#" onclick="return doclink('link-1', 'helper', 'link-1');">helper</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="yaklient" class="py-name" href="#" onclick="return doclink('link-2', 'yaklient', 'link-0');">yaklient</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Package yaklient.objects=yaklient.objects-module.html"><a title="yaklient.objects" class="py-name" href="#" onclick="return doclink('link-3', 'objects', 'link-3');">objects</a></tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module yaklient.objects.location=yaklient.objects.location-module.html"><a title="yaklient.objects.location" class="py-name" href="#" onclick="return doclink('link-4', 'location', 'link-4');">location</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Class yaklient.objects.location.Location=yaklient.objects.location.Location-class.html"><a title="yaklient.objects.location.Location" class="py-name" href="#" onclick="return doclink('link-5', 'Location', 'link-5');">Location</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name"><a title="yaklient" class="py-name" href="#" onclick="return doclink('link-6', 'yaklient', 'link-0');">yaklient</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="yaklient.objects" class="py-name" href="#" onclick="return doclink('link-7', 'objects', 'link-3');">objects</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Module yaklient.objects.message=yaklient.objects.message-module.html"><a title="yaklient.objects.message" class="py-name" href="#" onclick="return doclink('link-8', 'message', 'link-8');">message</a></tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Class yaklient.objects.message.Message=yaklient.objects.message.Message-class.html"><a title="yaklient.objects.message.Message" class="py-name" href="#" onclick="return doclink('link-9', 'Message', 'link-9');">Message</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># The types of Yaks</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt id="link-10" class="py-name" targets="Variable yaklient.objects.yak.YAK_TYPE_NORMAL=yaklient.objects.yak-module.html#YAK_TYPE_NORMAL"><a title="yaklient.objects.yak.YAK_TYPE_NORMAL" class="py-name" href="#" onclick="return doclink('link-10', 'YAK_TYPE_NORMAL', 'link-10');">YAK_TYPE_NORMAL</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt id="link-11" class="py-name" targets="Variable yaklient.objects.yak.YAK_TYPE_YIKYAK=yaklient.objects.yak-module.html#YAK_TYPE_YIKYAK"><a title="yaklient.objects.yak.YAK_TYPE_YIKYAK" class="py-name" href="#" onclick="return doclink('link-11', 'YAK_TYPE_YIKYAK', 'link-11');">YAK_TYPE_YIKYAK</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt id="link-12" class="py-name" targets="Variable yaklient.objects.yak.YAK_TYPE_PICTURE=yaklient.objects.yak-module.html#YAK_TYPE_PICTURE"><a title="yaklient.objects.yak.YAK_TYPE_PICTURE" class="py-name" href="#" onclick="return doclink('link-12', 'YAK_TYPE_PICTURE', 'link-12');">YAK_TYPE_PICTURE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">6</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="Yak"></a><div id="Yak-def"><a name="L16"></a><tt class="py-lineno">16</tt> <a class="py-toggle" href="#" id="Yak-toggle" onclick="return toggle('Yak');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yaklient.objects.yak.Yak-class.html">Yak</a><tt class="py-op">(</tt><tt class="py-base-class">Message</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Yak-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Yak-expanded"><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt class="py-docstring">"""A post on Yik Yak"""</tt> </tt>
+<a name="Yak.__init__"></a><div id="Yak.__init__-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="Yak.__init__-toggle" onclick="return toggle('Yak.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.objects.yak.Yak-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">raw</tt><tt class="py-op">,</tt> <tt class="py-param">user</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Yak.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Yak.__init__-expanded"><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">        <tt class="py-docstring">"""Initialize comment from raw JSON dict and user"""</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-name">super</tt><tt class="py-op">(</tt><tt id="link-13" class="py-name" targets="Class yaklient.objects.yak.Yak=yaklient.objects.yak.Yak-class.html"><a title="yaklient.objects.yak.Yak" class="py-name" href="#" onclick="return doclink('link-13', 'Yak', 'link-13');">Yak</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method yaklient.api.awsapi.AWSAuth.__init__()=yaklient.api.awsapi.AWSAuth-class.html#__init__,Method yaklient.helper.ParsingResponseError.__init__()=yaklient.helper.ParsingResponseError-class.html#__init__,Method yaklient.objects.comment.Comment.__init__()=yaklient.objects.comment.Comment-class.html#__init__,Method yaklient.objects.location.Location.__init__()=yaklient.objects.location.Location-class.html#__init__,Method yaklient.objects.message.Message.__init__()=yaklient.objects.message.Message-class.html#__init__,Method yaklient.objects.notification.Notification.__init__()=yaklient.objects.notification.Notification-class.html#__init__,Method yaklient.objects.peeklocation.PeekLocation.__init__()=yaklient.objects.peeklocation.PeekLocation-class.html#__init__,Method yaklient.objects.user.User.__init__()=yaklient.objects.user.User-class.html#__init__,Method yaklient.objects.yak.Yak.__init__()=yaklient.objects.yak.Yak-class.html#__init__"><a title="yaklient.api.awsapi.AWSAuth.__init__
+yaklient.helper.ParsingResponseError.__init__
+yaklient.objects.comment.Comment.__init__
+yaklient.objects.location.Location.__init__
+yaklient.objects.message.Message.__init__
+yaklient.objects.notification.Notification.__init__
+yaklient.objects.peeklocation.PeekLocation.__init__
+yaklient.objects.user.User.__init__
+yaklient.objects.yak.Yak.__init__" class="py-name" href="#" onclick="return doclink('link-14', '__init__', 'link-14');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">raw</tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name" targets="Module yaklient.objects.user=yaklient.objects.user-module.html"><a title="yaklient.objects.user" class="py-name" href="#" onclick="return doclink('link-15', 'user', 'link-15');">user</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-name">latitude</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"latitude"</tt><tt class="py-op">]</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt class="py-name">longitude</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"longitude"</tt><tt class="py-op">]</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">comments</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"comments"</tt><tt class="py-op">]</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">hide_pin</tt> <tt class="py-op">=</tt> <tt class="py-name">bool</tt><tt class="py-op">(</tt><tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"hidePin"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">loaded</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"messageID"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"R/"</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="yaklient.objects.location" class="py-name" href="#" onclick="return doclink('link-16', 'location', 'link-4');">location</a></tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="yaklient.objects.location.Location" class="py-name" href="#" onclick="return doclink('link-17', 'Location', 'link-5');">Location</a></tt><tt class="py-op">(</tt><tt class="py-name">latitude</tt><tt class="py-op">,</tt> <tt class="py-name">longitude</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="yaklient.objects.message" class="py-name" href="#" onclick="return doclink('link-18', 'message', 'link-8');">message</a></tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"message"</tt><tt class="py-op">]</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"type"</tt><tt class="py-op">]</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-comment"># If Yak is not fully loaded</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">loaded</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">gmt</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"gmt"</tt><tt class="py-op">]</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">handle</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"handle"</tt><tt class="py-op">]</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">read_only</tt> <tt class="py-op">=</tt> <tt class="py-name">bool</tt><tt class="py-op">(</tt><tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"readOnly"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">score</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"score"</tt><tt class="py-op">]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">gmt</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">handle</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">read_only</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">score</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">        <tt class="py-comment"># If Yak contains a picture</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">type</tt> <tt class="py-op">==</tt> <tt id="link-19" class="py-name"><a title="yaklient.objects.yak.YAK_TYPE_PICTURE" class="py-name" href="#" onclick="return doclink('link-19', 'YAK_TYPE_PICTURE', 'link-12');">YAK_TYPE_PICTURE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">expand_in_feed</tt> <tt class="py-op">=</tt> <tt class="py-name">bool</tt><tt class="py-op">(</tt><tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"expandInFeed"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thumbnail_url</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"thumbnailURL"</tt><tt class="py-op">]</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">raw</tt><tt class="py-op">[</tt><tt class="py-string">"url"</tt><tt class="py-op">]</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">expand_in_feed</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">thumbnail_url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"> </tt>
+<a name="Yak.__str__"></a><div id="Yak.__str__-def"><a name="L52"></a><tt class="py-lineno">52</tt> <a class="py-toggle" href="#" id="Yak.__str__-toggle" onclick="return toggle('Yak.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.objects.yak.Yak-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Yak.__str__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Yak.__str__-expanded"><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return Yak as string"""</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-name">string</tt> <tt class="py-op">=</tt> <tt class="py-string">"%s (%d upvotes)"</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt id="link-20" class="py-name"><a title="yaklient.objects.message" class="py-name" href="#" onclick="return doclink('link-20', 'message', 'link-8');">message</a></tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name"><a title="yaklient.helper" class="py-name" href="#" onclick="return doclink('link-21', 'helper', 'link-1');">helper</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Function yaklient.helper.emoji_remove()=yaklient.helper-module.html#emoji_remove"><a title="yaklient.helper.emoji_remove" class="py-name" href="#" onclick="return doclink('link-22', 'emoji_remove', 'link-22');">emoji_remove</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="yaklient.objects.message" class="py-name" href="#" onclick="return doclink('link-23', 'message', 'link-8');">message</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">string</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="yaklient.objects.message" class="py-name" href="#" onclick="return doclink('link-24', 'message', 'link-8');">message</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">likes</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="Yak.update"></a><div id="Yak.update-def"><a name="L58"></a><tt class="py-lineno">58</tt> <a class="py-toggle" href="#" id="Yak.update-toggle" onclick="return toggle('Yak.update');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.objects.yak.Yak-class.html#update">update</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Yak.update-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Yak.update-expanded"><a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-docstring">"""Update properties from Yik Yak. Return True if successful, False if</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"><tt class="py-docstring">        unsuccessful"""</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt id="link-25" class="py-name" targets="Module yaklient.objects.yak=yaklient.objects.yak-module.html"><a title="yaklient.objects.yak" class="py-name" href="#" onclick="return doclink('link-25', 'yak', 'link-25');">yak</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="yaklient.objects.user" class="py-name" href="#" onclick="return doclink('link-26', 'user', 'link-15');">user</a></tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Method yaklient.objects.user.User.get_yak()=yaklient.objects.user.User-class.html#get_yak"><a title="yaklient.objects.user.User.get_yak" class="py-name" href="#" onclick="return doclink('link-27', 'get_yak', 'link-27');">get_yak</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">message_id</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-28" class="py-name"><a title="yaklient.objects.yak" class="py-name" href="#" onclick="return doclink('link-28', 'yak', 'link-25');">yak</a></tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">            <tt class="py-name">self</tt> <tt class="py-op">=</tt> <tt id="link-29" class="py-name"><a title="yaklient.objects.yak" class="py-name" href="#" onclick="return doclink('link-29', 'yak', 'link-25');">yak</a></tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+</div></div><a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yaklient-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed Jun 10 13:29:57 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html><head><title>Epydoc Redirect Page</title>
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="pragma" content="no-cache" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+var pages = ["yaklient.objects.user.TooCloseToSchoolException-c", "yaklient.objects.notification.Notification-c", "yaklient.objects.peeklocation.PeekLocation-c", "yaklient.objects.user.NoBasecampSetError-c", "yaklient.helper.ParsingResponseError-c", "yaklient.objects.location.Location-c", "yaklient.objects.comment.Comment-c", "yaklient.objects.message.Message-c", "yaklient.objects.notification-m", "yaklient.objects.peeklocation-m", "yaklient.api.awsapi.AWSAuth-c", "yaklient.objects.user.User-c", "yaklient.objects.location-m", "yaklient.objects.comment-m", "yaklient.objects.message-m", "yaklient.objects.yak.Yak-c", "yaklient.api.notifyapi-m", "yaklient.api.yikyakapi-m", "yaklient.api.parseapi-m", "yaklient.objects.user-m", "yaklient.objects.yak-m", "yaklient.api.awsapi-m", "yaklient.settings-m", "yaklient.objects-m", "yaklient.config-m", "yaklient.helper-m", "yaklient.api-m", "yaklient-m"];
+var dottedName = get_anchor();
+if (dottedName) {
+    var target = redirect_url(dottedName);
+    if (target) window.location.replace(target);
+}
+// -->
+</script>
+
+<h3>Epydoc Auto-redirect page</h3>
+
+<p>When javascript is enabled, this page will redirect URLs of
+the form <tt>redirect.html#<i>dotted.name</i></tt> to the
+documentation for the object with the given fully-qualified
+dotted name.</p>
+<p><a id="message"> &nbsp; </a></p>
+
+<script type="text/javascript">
+<!--
+if (dottedName) {
+    var msg = document.getElementById("message");
+    msg.innerHTML = "No documentation found for <tt>"+
+                    dottedName+"</tt>";
+}
+// -->
+</script>
+
+</body>
+</html>

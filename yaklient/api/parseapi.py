@@ -12,8 +12,8 @@ from yaklient import settings
 
 
 # Session for requests
-session = Session()
-request = session.request
+SESSION = Session()
+REQUEST = SESSION.request
 
 
 def _create_installation(iid):
@@ -63,7 +63,7 @@ def _send(method, data, iid):
     user_agent %= (settings.PARSE_VERSION, settings.PARSE_BUILD,
                    settings.PARSE_API_LEVEL)
     headers = {"Accept-Encoding": "gzip", "User-Agent": user_agent}
-    return request("POST", url, data=json_data, auth=auth, headers=headers)
+    return REQUEST("POST", url, data=json_data, auth=auth, headers=headers)
 
 
 def register_user(user_id):

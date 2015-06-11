@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>yaklient.api.awsapi</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yaklient-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="yaklient-module.html">Package&nbsp;yaklient</a> ::
+        <a href="yaklient.api-module.html">Package&nbsp;api</a> ::
+        Module&nbsp;awsapi
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="yaklient.api.awsapi-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="yaklient.api.awsapi-module.html">Module yaklient.api.awsapi</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">"""An API for performing image uploads with Amazon Web Services"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">email</tt><tt class="py-op">.</tt><tt class="py-name">utils</tt> <tt class="py-keyword">import</tt> <tt class="py-name">formatdate</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">requests</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Session</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">requests</tt><tt class="py-op">.</tt><tt class="py-name">auth</tt> <tt class="py-keyword">import</tt> <tt class="py-name">AuthBase</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">urllib</tt> <tt class="py-keyword">import</tt> <tt class="py-name">urlencode</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">urlparse</tt> <tt class="py-keyword">import</tt> <tt class="py-name">urljoin</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package yaklient=yaklient-module.html"><a title="yaklient" class="py-name" href="#" onclick="return doclink('link-0', 'yaklient', 'link-0');">yaklient</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module yaklient.settings=yaklient.settings-module.html"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-1', 'settings', 'link-1');">settings</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="yaklient" class="py-name" href="#" onclick="return doclink('link-2', 'yaklient', 'link-0');">yaklient</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module yaklient.helper=yaklient.helper-module.html"><a title="yaklient.helper" class="py-name" href="#" onclick="return doclink('link-3', 'helper', 'link-3');">helper</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Function yaklient.helper.generate_id()=yaklient.helper-module.html#generate_id"><a title="yaklient.helper.generate_id" class="py-name" href="#" onclick="return doclink('link-4', 'generate_id', 'link-4');">generate_id</a></tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Function yaklient.helper.hash_msg()=yaklient.helper-module.html#hash_msg"><a title="yaklient.helper.hash_msg" class="py-name" href="#" onclick="return doclink('link-5', 'hash_msg', 'link-5');">hash_msg</a></tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"># Session for requests</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable yaklient.api.awsapi.SESSION=yaklient.api.awsapi-module.html#SESSION,Variable yaklient.api.notifyapi.SESSION=yaklient.api.notifyapi-module.html#SESSION,Variable yaklient.api.parseapi.SESSION=yaklient.api.parseapi-module.html#SESSION,Variable yaklient.api.yikyakapi.SESSION=yaklient.api.yikyakapi-module.html#SESSION,Variable yaklient.config.SESSION=yaklient.config-module.html#SESSION"><a title="yaklient.api.awsapi.SESSION
+yaklient.api.notifyapi.SESSION
+yaklient.api.parseapi.SESSION
+yaklient.api.yikyakapi.SESSION
+yaklient.config.SESSION" class="py-name" href="#" onclick="return doclink('link-6', 'SESSION', 'link-6');">SESSION</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Session</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-name">REQUEST</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="yaklient.api.awsapi.SESSION
+yaklient.api.notifyapi.SESSION
+yaklient.api.parseapi.SESSION
+yaklient.api.yikyakapi.SESSION
+yaklient.config.SESSION" class="py-name" href="#" onclick="return doclink('link-7', 'SESSION', 'link-6');">SESSION</a></tt><tt class="py-op">.</tt><tt class="py-name">request</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="_new_object"></a><div id="_new_object-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="_new_object-toggle" onclick="return toggle('_new_object');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.api.awsapi-module.html#_new_object">_new_object</a><tt class="py-op">(</tt><tt class="py-param">object_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_new_object-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_new_object-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return raw response data from creating a new object (name:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">    object_name)"""</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">urljoin</tt><tt class="py-op">(</tt><tt id="link-8" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-8', 'settings', 'link-1');">settings</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Variable yaklient.settings.AWS_UPLOAD_ENDPOINT=yaklient.settings-module.html#AWS_UPLOAD_ENDPOINT"><a title="yaklient.settings.AWS_UPLOAD_ENDPOINT" class="py-name" href="#" onclick="return doclink('link-9', 'AWS_UPLOAD_ENDPOINT', 'link-9');">AWS_UPLOAD_ENDPOINT</a></tt><tt class="py-op">,</tt> <tt class="py-string">"upload"</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'?'</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt class="py-name">url</tt> <tt class="py-op">+=</tt> <tt class="py-name">urlencode</tt><tt class="py-op">(</tt><tt class="py-op">{</tt><tt class="py-string">"s3_object_name"</tt><tt class="py-op">:</tt> <tt class="py-name">object_name</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">REQUEST</tt><tt class="py-op">(</tt><tt class="py-string">"GET"</tt><tt class="py-op">,</tt> <tt class="py-name">url</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="upload_image"></a><div id="upload_image-def"><a name="L27"></a><tt class="py-lineno">27</tt> <a class="py-toggle" href="#" id="upload_image-toggle" onclick="return toggle('upload_image');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.api.awsapi-module.html#upload_image">upload_image</a><tt class="py-op">(</tt><tt class="py-param">image</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="upload_image-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="upload_image-expanded"><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-docstring">"""Upload image to the AWS server"""</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt class="py-comment"># Create the object on the AWS server</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-name">object_name</tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="yaklient.helper.generate_id" class="py-name" href="#" onclick="return doclink('link-10', 'generate_id', 'link-4');">generate_id</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name" targets="Function yaklient.api.awsapi._new_object()=yaklient.api.awsapi-module.html#_new_object"><a title="yaklient.api.awsapi._new_object" class="py-name" href="#" onclick="return doclink('link-11', '_new_object', 'link-11');">_new_object</a></tt><tt class="py-op">(</tt><tt class="py-name">object_name</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-comment"># Strip the query from the returned URL</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">'?'</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt class="py-comment"># Send the request</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-name">auth</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name" targets="Class yaklient.api.awsapi.AWSAuth=yaklient.api.awsapi.AWSAuth-class.html"><a title="yaklient.api.awsapi.AWSAuth" class="py-name" href="#" onclick="return doclink('link-12', 'AWSAuth', 'link-12');">AWSAuth</a></tt><tt class="py-op">(</tt><tt id="link-13" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-13', 'settings', 'link-1');">settings</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable yaklient.settings.AWS_ACCESS_KEY=yaklient.settings-module.html#AWS_ACCESS_KEY"><a title="yaklient.settings.AWS_ACCESS_KEY" class="py-name" href="#" onclick="return doclink('link-14', 'AWS_ACCESS_KEY', 'link-14');">AWS_ACCESS_KEY</a></tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-15', 'settings', 'link-1');">settings</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable yaklient.settings.AWS_SECRET_KEY=yaklient.settings-module.html#AWS_SECRET_KEY"><a title="yaklient.settings.AWS_SECRET_KEY" class="py-name" href="#" onclick="return doclink('link-16', 'AWS_SECRET_KEY', 'link-16');">AWS_SECRET_KEY</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                   <tt id="link-17" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-17', 'settings', 'link-1');">settings</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Variable yaklient.settings.AWS_BUCKET=yaklient.settings-module.html#AWS_BUCKET"><a title="yaklient.settings.AWS_BUCKET" class="py-name" href="#" onclick="return doclink('link-18', 'AWS_BUCKET', 'link-18');">AWS_BUCKET</a></tt><tt class="py-op">,</tt> <tt class="py-name">object_name</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-name">files</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"file"</tt><tt class="py-op">:</tt> <tt class="py-name">image</tt><tt class="py-op">}</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">REQUEST</tt><tt class="py-op">(</tt><tt class="py-string">"POST"</tt><tt class="py-op">,</tt> <tt class="py-name">url</tt><tt class="py-op">,</tt> <tt class="py-name">files</tt><tt class="py-op">=</tt><tt class="py-name">files</tt><tt class="py-op">,</tt> <tt class="py-name">auth</tt><tt class="py-op">=</tt><tt class="py-name">auth</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="AWSAuth"></a><div id="AWSAuth-def"><a name="L41"></a><tt class="py-lineno">41</tt> <a class="py-toggle" href="#" id="AWSAuth-toggle" onclick="return toggle('AWSAuth');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yaklient.api.awsapi.AWSAuth-class.html">AWSAuth</a><tt class="py-op">(</tt><tt class="py-base-class">AuthBase</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AWSAuth-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="AWSAuth-expanded"><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-docstring">"""Authentication for a request to the AWS server"""</tt> </tt>
+<a name="AWSAuth.__init__"></a><div id="AWSAuth.__init__-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="AWSAuth.__init__-toggle" onclick="return toggle('AWSAuth.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.api.awsapi.AWSAuth-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">access_key</tt><tt class="py-op">,</tt> <tt class="py-param">secret_key</tt><tt class="py-op">,</tt> <tt class="py-param">bucket</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AWSAuth.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AWSAuth.__init__-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-docstring">"""Initialize access_key, secret_key, and resource</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring">        (/bucket/filename)"""</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">access_key</tt> <tt class="py-op">=</tt> <tt class="py-name">access_key</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">secret_key</tt> <tt class="py-op">=</tt> <tt class="py-name">secret_key</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">resource</tt> <tt class="py-op">=</tt> <tt class="py-string">"/%s/%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">bucket</tt><tt class="py-op">,</tt> <tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"> </tt>
+<a name="AWSAuth.__call__"></a><div id="AWSAuth.__call__-def"><a name="L50"></a><tt class="py-lineno">50</tt> <a class="py-toggle" href="#" id="AWSAuth.__call__-toggle" onclick="return toggle('AWSAuth.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.api.awsapi.AWSAuth-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">r</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AWSAuth.__call__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="AWSAuth.__call__-expanded"><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-docstring">"""Implement the AWS authentication for request r"""</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-name">date_string</tt> <tt class="py-op">=</tt> <tt class="py-name">formatdate</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-name">content_type</tt> <tt class="py-op">=</tt> <tt class="py-name">r</tt><tt class="py-op">.</tt><tt class="py-name">headers</tt><tt class="py-op">[</tt><tt class="py-string">"Content-Type"</tt><tt class="py-op">]</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-name">msg</tt> <tt class="py-op">=</tt> <tt class="py-string">"PUT\n\n%s\n%s\n%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">content_type</tt><tt class="py-op">,</tt> <tt class="py-name">date_string</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">resource</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-name">signature</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="yaklient.helper.hash_msg" class="py-name" href="#" onclick="return doclink('link-19', 'hash_msg', 'link-5');">hash_msg</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">secret_key</tt><tt class="py-op">,</tt> <tt class="py-name">msg</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-name">r</tt><tt class="py-op">.</tt><tt class="py-name">headers</tt><tt class="py-op">[</tt><tt class="py-string">"Date"</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">date_string</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-name">r</tt><tt class="py-op">.</tt><tt class="py-name">headers</tt><tt class="py-op">[</tt><tt class="py-string">'Authorization'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">"AWS %s:%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">access_key</tt><tt class="py-op">,</tt> <tt class="py-name">signature</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">r</tt> </tt>
+</div></div><a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yaklient-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed Jun 10 13:29:57 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

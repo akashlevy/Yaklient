@@ -35,7 +35,9 @@ class ParsingResponseError(Exception):
     def __init__(self, error_string, response):
         """Initialize the error message"""
         self.msg = "%s\nResponse:\n%s" % (error_string, response.text)
+        super(ParsingResponseError, self).__init__(self.msg)
         self.response = response
+
     def __str__(self):
         """Return the error message"""
         return self.msg

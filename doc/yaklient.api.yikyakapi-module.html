@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>yaklient.api.yikyakapi</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yaklient-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="yaklient-module.html">Package&nbsp;yaklient</a> ::
+        <a href="yaklient.api-module.html">Package&nbsp;api</a> ::
+        Module&nbsp;yikyakapi
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="yaklient.api.yikyakapi-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module yikyakapi</h1><p class="nomargin-top"><span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html">source&nbsp;code</a></span></p>
+<p>A low-level API for Yik Yak, providing access to all the basic 
+  functions</p>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_send"></a><span class="summary-sig-name">_send</span>(<span class="summary-sig-arg">method</span>,
+        <span class="summary-sig-arg">url</span>,
+        <span class="summary-sig-arg">endpoint</span>,
+        <span class="summary-sig-arg">params</span>,
+        <span class="summary-sig-arg">data</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return response from server after making request with method to 
+      endpoint with params and, optionally, data</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#_send">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="register_user"></a><span class="summary-sig-name">register_user</span>(<span class="summary-sig-arg">user</span>)</span><br />
+      Return raw response data from registering user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#register_user">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_message"></a><span class="summary-sig-name">get_message</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message_id</span>)</span><br />
+      Return raw response data for a message (ID: message_id) using user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_message">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_messages"></a><span class="summary-sig-name">get_messages</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">location</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data for all messages in location/basecamp using 
+      user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_messages">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_peek_messages"></a><span class="summary-sig-name">get_peek_messages</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">peek_id</span>)</span><br />
+      Return raw response data for messages at peek location (ID: peek_id) 
+      using user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_peek_messages">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="hot"></a><span class="summary-sig-name">hot</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">location</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data for top messages in location/basecamp using 
+      user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#hot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="yaks"></a><span class="summary-sig-name">yaks</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">location</span>)</span><br />
+      Return raw response data for messages at location using user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#yaks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_my_recent_yaks"></a><span class="summary-sig-name">get_my_recent_yaks</span>(<span class="summary-sig-arg">user</span>)</span><br />
+      Return raw response data for recent Yaks of user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_my_recent_yaks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_my_recent_replies"></a><span class="summary-sig-name">get_my_recent_replies</span>(<span class="summary-sig-arg">user</span>)</span><br />
+      Return raw response data for recent replies of user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_my_recent_replies">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_my_tops"></a><span class="summary-sig-name">get_my_tops</span>(<span class="summary-sig-arg">user</span>)</span><br />
+      Return raw response data for top Yaks of user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_my_tops">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_area_tops"></a><span class="summary-sig-name">get_area_tops</span>(<span class="summary-sig-arg">user</span>)</span><br />
+      Return raw response data for top Yaks in area</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_area_tops">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_comments"></a><span class="summary-sig-name">get_comments</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data for all comments on a message (ID: 
+      message_id) using user (optionally at basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_comments">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="like_message"></a><span class="summary-sig-name">like_message</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from upvoting a message (ID: message_id) 
+      using user (optionally at basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#like_message">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="downvote_message"></a><span class="summary-sig-name">downvote_message</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from downvoting a message (ID: message_id) 
+      using user (optionally at basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#downvote_message">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="like_comment"></a><span class="summary-sig-name">like_comment</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">comment_id</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from upvoting a comment (ID: comment_id) 
+      using user (optionally at basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#like_comment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="downvote_comment"></a><span class="summary-sig-name">downvote_comment</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">comment_id</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from downvoting a comment (ID: comment_id) 
+      belonging to message (ID: message_id) using user (optionally at 
+      basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#downvote_comment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="report_message"></a><span class="summary-sig-name">report_message</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">reason</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from reporting a message (ID: message_id) 
+      for a specified reason using user (optionally at basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#report_message">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="report_comment"></a><span class="summary-sig-name">report_comment</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">comment_id</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">reason</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from reporting a comment (ID: comment_id) 
+      belonging to message (ID: message_id) for a specified reason using 
+      user (optionally at basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#report_comment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="delete_message"></a><span class="summary-sig-name">delete_message</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from deleting a message (ID: message_id) 
+      using user (optionally at basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#delete_message">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="delete_comment"></a><span class="summary-sig-name">delete_comment</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">comment_id</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from deleting a comment (ID: comment_id) 
+      belonging to a message (ID: message_id) with user (optionally at 
+      basecamp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#delete_comment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="log_event"></a><span class="summary-sig-name">log_event</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">event_type</span>)</span><br />
+      Return raw response data from logging an app event of type event_type
+      using user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#log_event">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="send_message"></a><span class="summary-sig-name">send_message</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message</span>,
+        <span class="summary-sig-arg">handle</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">btp</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from sending a message with an optional 
+      handle using user (optionally at basecamp and optionally with 
+      parameter bypassedThreatPopup as btp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#send_message">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="post_comment"></a><span class="summary-sig-name">post_comment</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">comment</span>,
+        <span class="summary-sig-arg">message_id</span>,
+        <span class="summary-sig-arg">btp</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">basecamp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from posting a comment belonging to message 
+      (ID: message_id) using user (optionally at basecamp and optionally 
+      with parameter bypassedThreatPopup as btp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#post_comment">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="submit_peek_message"></a><span class="summary-sig-name">submit_peek_message</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message</span>,
+        <span class="summary-sig-arg">peek_id</span>,
+        <span class="summary-sig-arg">handle</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">btp</span>=<span class="summary-sig-default">0</span>)</span><br />
+      Return raw response data from submitting a peek message with an 
+      optional handle at peek location with ID peek_id using user 
+      (optionally with parameter bypassedThreatPopup as btp)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#submit_peek_message">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="contact_us"></a><span class="summary-sig-name">contact_us</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">message</span>,
+        <span class="summary-sig-arg">category</span>,
+        <span class="summary-sig-arg">email</span>)</span><br />
+      Return raw response data from contacting Yik Yak with message in 
+      particular category using user with specified email</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#contact_us">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_basecamps"></a><span class="summary-sig-name">get_basecamps</span>(<span class="summary-sig-arg">user</span>)</span><br />
+      Return raw response data for all basecamps of user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#get_basecamps">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="save_basecamp"></a><span class="summary-sig-name">save_basecamp</span>(<span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">location</span>)</span><br />
+      Return raw response data from saving a basecamp</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yaklient.api.yikyakapi-pysrc.html#save_basecamp">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="SESSION"></a><span class="summary-name">SESSION</span> = <code title="Session()">Session()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'yaklient.api'"><code class="variable-quote">'</code><code class="variable-string">yaklient.api</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yaklient-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed Jun 10 13:29:57 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>yaklient.api.parseapi</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yaklient-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="yaklient-module.html">Package&nbsp;yaklient</a> ::
+        <a href="yaklient.api-module.html">Package&nbsp;api</a> ::
+        Module&nbsp;parseapi
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="yaklient.api.parseapi-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="yaklient.api.parseapi-module.html">Module yaklient.api.parseapi</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">"""An API for Yik Yak's Parse service"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">json</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">requests</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Session</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">requests_oauthlib</tt> <tt class="py-keyword">import</tt> <tt class="py-name">OAuth1</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">time</tt> <tt class="py-keyword">import</tt> <tt class="py-name">tzname</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">urlparse</tt> <tt class="py-keyword">import</tt> <tt class="py-name">urljoin</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package yaklient=yaklient-module.html"><a title="yaklient" class="py-name" href="#" onclick="return doclink('link-0', 'yaklient', 'link-0');">yaklient</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module yaklient.helper=yaklient.helper-module.html"><a title="yaklient.helper" class="py-name" href="#" onclick="return doclink('link-1', 'helper', 'link-1');">helper</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Function yaklient.helper.generate_id()=yaklient.helper-module.html#generate_id"><a title="yaklient.helper.generate_id" class="py-name" href="#" onclick="return doclink('link-2', 'generate_id', 'link-2');">generate_id</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Class yaklient.helper.ParsingResponseError=yaklient.helper.ParsingResponseError-class.html"><a title="yaklient.helper.ParsingResponseError" class="py-name" href="#" onclick="return doclink('link-3', 'ParsingResponseError', 'link-3');">ParsingResponseError</a></tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name"><a title="yaklient" class="py-name" href="#" onclick="return doclink('link-4', 'yaklient', 'link-0');">yaklient</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Module yaklient.settings=yaklient.settings-module.html"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-5', 'settings', 'link-5');">settings</a></tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment"># Session for requests</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable yaklient.api.awsapi.SESSION=yaklient.api.awsapi-module.html#SESSION,Variable yaklient.api.notifyapi.SESSION=yaklient.api.notifyapi-module.html#SESSION,Variable yaklient.api.parseapi.SESSION=yaklient.api.parseapi-module.html#SESSION,Variable yaklient.api.yikyakapi.SESSION=yaklient.api.yikyakapi-module.html#SESSION,Variable yaklient.config.SESSION=yaklient.config-module.html#SESSION"><a title="yaklient.api.awsapi.SESSION
+yaklient.api.notifyapi.SESSION
+yaklient.api.parseapi.SESSION
+yaklient.api.yikyakapi.SESSION
+yaklient.config.SESSION" class="py-name" href="#" onclick="return doclink('link-6', 'SESSION', 'link-6');">SESSION</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Session</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-name">REQUEST</tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="yaklient.api.awsapi.SESSION
+yaklient.api.notifyapi.SESSION
+yaklient.api.parseapi.SESSION
+yaklient.api.yikyakapi.SESSION
+yaklient.config.SESSION" class="py-name" href="#" onclick="return doclink('link-7', 'SESSION', 'link-6');">SESSION</a></tt><tt class="py-op">.</tt><tt class="py-name">request</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="_create_installation"></a><div id="_create_installation-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="_create_installation-toggle" onclick="return toggle('_create_installation');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.api.parseapi-module.html#_create_installation">_create_installation</a><tt class="py-op">(</tt><tt class="py-param">iid</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_create_installation-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_create_installation-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-docstring">"""Send a request to create an installation (ID: iid). Return the object</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">    ID associated with it"""</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">            <tt class="py-string">"deviceType"</tt><tt class="py-op">:</tt> <tt class="py-string">"android"</tt><tt class="py-op">,</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">            <tt class="py-string">"appVersion"</tt><tt class="py-op">:</tt> <tt id="link-8" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-8', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Variable yaklient.settings.YIKYAK_VERSION=yaklient.settings-module.html#YIKYAK_VERSION"><a title="yaklient.settings.YIKYAK_VERSION" class="py-name" href="#" onclick="return doclink('link-9', 'YIKYAK_VERSION', 'link-9');">YIKYAK_VERSION</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">            <tt class="py-string">"parseVersion"</tt><tt class="py-op">:</tt> <tt id="link-10" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-10', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable yaklient.settings.PARSE_VERSION=yaklient.settings-module.html#PARSE_VERSION"><a title="yaklient.settings.PARSE_VERSION" class="py-name" href="#" onclick="return doclink('link-11', 'PARSE_VERSION', 'link-11');">PARSE_VERSION</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">            <tt class="py-string">"appName"</tt><tt class="py-op">:</tt> <tt class="py-string">"Yik Yak"</tt><tt class="py-op">,</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">            <tt class="py-string">"timeZone"</tt><tt class="py-op">:</tt> <tt class="py-name">tzname</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">            <tt class="py-string">"installationId"</tt><tt class="py-op">:</tt> <tt class="py-name">iid</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">            <tt class="py-string">"appIdentifier"</tt><tt class="py-op">:</tt> <tt class="py-string">"com.yik.yak"</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">            <tt class="py-op">}</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-12" class="py-name" targets="Function yaklient.api.parseapi._send()=yaklient.api.parseapi-module.html#_send,Function yaklient.api.yikyakapi._send()=yaklient.api.yikyakapi-module.html#_send"><a title="yaklient.api.parseapi._send
+yaklient.api.yikyakapi._send" class="py-name" href="#" onclick="return doclink('link-12', '_send', 'link-12');">_send</a></tt><tt class="py-op">(</tt><tt class="py-string">"create"</tt><tt class="py-op">,</tt> <tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-name">iid</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt>
+<a name="_save_user"></a><div id="_save_user-def"><a name="L34"></a><tt class="py-lineno">34</tt> <a class="py-toggle" href="#" id="_save_user-toggle" onclick="return toggle('_save_user');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.api.parseapi-module.html#_save_user">_save_user</a><tt class="py-op">(</tt><tt class="py-param">user_id</tt><tt class="py-op">,</tt> <tt class="py-param">iid</tt><tt class="py-op">,</tt> <tt class="py-param">object_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_save_user-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_save_user-expanded"><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-docstring">"""Send a request to add user_id to the installation with (ID: iid,</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">    object_id"""</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-comment"># User ID is surrounded by a 'c' on either side</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt class="py-name">user_id</tt> <tt class="py-op">=</tt> <tt class="py-string">'c'</tt> <tt class="py-op">+</tt> <tt class="py-name">user_id</tt> <tt class="py-op">+</tt> <tt class="py-string">'c'</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">            <tt class="py-string">"channels"</tt><tt class="py-op">:</tt> <tt class="py-op">{</tt><tt class="py-string">"objects"</tt><tt class="py-op">:</tt> <tt class="py-op">[</tt><tt class="py-name">user_id</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">"__op"</tt><tt class="py-op">:</tt> <tt class="py-string">"AddUnique"</tt><tt class="py-op">}</tt><tt class="py-op">,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">            <tt class="py-string">"objectId"</tt><tt class="py-op">:</tt> <tt class="py-name">object_id</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">            <tt class="py-op">}</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-13" class="py-name"><a title="yaklient.api.parseapi._send
+yaklient.api.yikyakapi._send" class="py-name" href="#" onclick="return doclink('link-13', '_send', 'link-12');">_send</a></tt><tt class="py-op">(</tt><tt class="py-string">"update"</tt><tt class="py-op">,</tt> <tt class="py-name">data</tt><tt class="py-op">,</tt> <tt class="py-name">iid</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt>
+<a name="_send"></a><div id="_send-def"><a name="L46"></a><tt class="py-lineno">46</tt> <a class="py-toggle" href="#" id="_send-toggle" onclick="return toggle('_send');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.api.parseapi-module.html#_send">_send</a><tt class="py-op">(</tt><tt class="py-param">method</tt><tt class="py-op">,</tt> <tt class="py-param">data</tt><tt class="py-op">,</tt> <tt class="py-param">iid</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_send-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="_send-expanded"><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt class="py-docstring">"""Send data associated with an installation (ID: iid) to Yik Yak's Parse</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-docstring">    service using specified method. Return the response"""</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-name">url</tt> <tt class="py-op">=</tt> <tt class="py-name">urljoin</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-14', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable yaklient.settings.PARSE_ENDPOINT=yaklient.settings-module.html#PARSE_ENDPOINT"><a title="yaklient.settings.PARSE_ENDPOINT" class="py-name" href="#" onclick="return doclink('link-15', 'PARSE_ENDPOINT', 'link-15');">PARSE_ENDPOINT</a></tt><tt class="py-op">,</tt> <tt class="py-name">method</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">    <tt class="py-name">data</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">            <tt class="py-string">"classname"</tt><tt class="py-op">:</tt> <tt class="py-string">"_Installation"</tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">            <tt class="py-string">"data"</tt><tt class="py-op">:</tt> <tt class="py-name">data</tt><tt class="py-op">,</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">            <tt class="py-string">"osVersion"</tt><tt class="py-op">:</tt> <tt id="link-16" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-16', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Variable yaklient.settings.ANDROID_VERSION=yaklient.settings-module.html#ANDROID_VERSION"><a title="yaklient.settings.ANDROID_VERSION" class="py-name" href="#" onclick="return doclink('link-17', 'ANDROID_VERSION', 'link-17');">ANDROID_VERSION</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">            <tt class="py-string">"appBuildVersion"</tt><tt class="py-op">:</tt> <tt id="link-18" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-18', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Variable yaklient.settings.PARSE_BUILD=yaklient.settings-module.html#PARSE_BUILD"><a title="yaklient.settings.PARSE_BUILD" class="py-name" href="#" onclick="return doclink('link-19', 'PARSE_BUILD', 'link-19');">PARSE_BUILD</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">            <tt class="py-string">"appDisplayVersion"</tt><tt class="py-op">:</tt> <tt id="link-20" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-20', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="yaklient.settings.YIKYAK_VERSION" class="py-name" href="#" onclick="return doclink('link-21', 'YIKYAK_VERSION', 'link-9');">YIKYAK_VERSION</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-string">"v"</tt><tt class="py-op">:</tt> <tt id="link-22" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-22', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Variable yaklient.settings.PARSE_VERSION_LETTER=yaklient.settings-module.html#PARSE_VERSION_LETTER"><a title="yaklient.settings.PARSE_VERSION_LETTER" class="py-name" href="#" onclick="return doclink('link-23', 'PARSE_VERSION_LETTER', 'link-23');">PARSE_VERSION_LETTER</a></tt> <tt class="py-op">+</tt> <tt id="link-24" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-24', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="yaklient.settings.PARSE_VERSION" class="py-name" href="#" onclick="return doclink('link-25', 'PARSE_VERSION', 'link-11');">PARSE_VERSION</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">            <tt class="py-string">"iid"</tt><tt class="py-op">:</tt> <tt class="py-name">iid</tt><tt class="py-op">,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-string">"uuid"</tt><tt class="py-op">:</tt> <tt id="link-26" class="py-name"><a title="yaklient.helper.generate_id" class="py-name" href="#" onclick="return doclink('link-26', 'generate_id', 'link-2');">generate_id</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">            <tt class="py-op">}</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">    <tt class="py-name">json_data</tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">dumps</tt><tt class="py-op">(</tt><tt class="py-name">data</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-name">auth</tt> <tt class="py-op">=</tt> <tt class="py-name">OAuth1</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-27', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Variable yaklient.settings.PARSE_APPID=yaklient.settings-module.html#PARSE_APPID"><a title="yaklient.settings.PARSE_APPID" class="py-name" href="#" onclick="return doclink('link-28', 'PARSE_APPID', 'link-28');">PARSE_APPID</a></tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-29', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Variable yaklient.settings.PARSE_CLIENTKEY=yaklient.settings-module.html#PARSE_CLIENTKEY"><a title="yaklient.settings.PARSE_CLIENTKEY" class="py-name" href="#" onclick="return doclink('link-30', 'PARSE_CLIENTKEY', 'link-30');">PARSE_CLIENTKEY</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">    <tt class="py-name">user_agent</tt> <tt class="py-op">=</tt> <tt class="py-string">"Parse Android SDK %s (com.yik.yak/%s) API Level %s"</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-name">user_agent</tt> <tt class="py-op">%=</tt> <tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-31', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="yaklient.settings.PARSE_VERSION" class="py-name" href="#" onclick="return doclink('link-32', 'PARSE_VERSION', 'link-11');">PARSE_VERSION</a></tt><tt class="py-op">,</tt> <tt id="link-33" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-33', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="yaklient.settings.PARSE_BUILD" class="py-name" href="#" onclick="return doclink('link-34', 'PARSE_BUILD', 'link-19');">PARSE_BUILD</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">                   <tt id="link-35" class="py-name"><a title="yaklient.settings" class="py-name" href="#" onclick="return doclink('link-35', 'settings', 'link-5');">settings</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Variable yaklient.settings.PARSE_API_LEVEL=yaklient.settings-module.html#PARSE_API_LEVEL"><a title="yaklient.settings.PARSE_API_LEVEL" class="py-name" href="#" onclick="return doclink('link-36', 'PARSE_API_LEVEL', 'link-36');">PARSE_API_LEVEL</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">    <tt class="py-name">headers</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"Accept-Encoding"</tt><tt class="py-op">:</tt> <tt class="py-string">"gzip"</tt><tt class="py-op">,</tt> <tt class="py-string">"User-Agent"</tt><tt class="py-op">:</tt> <tt class="py-name">user_agent</tt><tt class="py-op">}</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">REQUEST</tt><tt class="py-op">(</tt><tt class="py-string">"POST"</tt><tt class="py-op">,</tt> <tt class="py-name">url</tt><tt class="py-op">,</tt> <tt class="py-name">data</tt><tt class="py-op">=</tt><tt class="py-name">json_data</tt><tt class="py-op">,</tt> <tt class="py-name">auth</tt><tt class="py-op">=</tt><tt class="py-name">auth</tt><tt class="py-op">,</tt> <tt class="py-name">headers</tt><tt class="py-op">=</tt><tt class="py-name">headers</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"> </tt>
+<a name="register_user"></a><div id="register_user-def"><a name="L69"></a><tt class="py-lineno">69</tt> <a class="py-toggle" href="#" id="register_user-toggle" onclick="return toggle('register_user');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="yaklient.api.parseapi-module.html#register_user">register_user</a><tt class="py-op">(</tt><tt class="py-param">user_id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="register_user-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="register_user-expanded"><a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">    <tt class="py-docstring">"""Register a user with Yik Yak's Parse service. Create a new installation</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line"><tt class="py-docstring">    and add user_id to it. Return installation ID and object ID"""</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">    <tt class="py-comment"># Installation ID</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">    <tt class="py-name">iid</tt> <tt class="py-op">=</tt> <tt id="link-37" class="py-name"><a title="yaklient.helper.generate_id" class="py-name" href="#" onclick="return doclink('link-37', 'generate_id', 'link-2');">generate_id</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">    <tt class="py-comment"># Create installation and check for errors</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">    <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt id="link-38" class="py-name" targets="Function yaklient.api.parseapi._create_installation()=yaklient.api.parseapi-module.html#_create_installation"><a title="yaklient.api.parseapi._create_installation" class="py-name" href="#" onclick="return doclink('link-38', '_create_installation', 'link-38');">_create_installation</a></tt><tt class="py-op">(</tt><tt class="py-name">iid</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt class="py-name">object_id</tt> <tt class="py-op">=</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">json</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">"result"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"data"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"objectId"</tt><tt class="py-op">]</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt class="py-name">KeyError</tt><tt class="py-op">,</tt> <tt class="py-name">ValueError</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt id="link-39" class="py-name"><a title="yaklient.helper.ParsingResponseError" class="py-name" href="#" onclick="return doclink('link-39', 'ParsingResponseError', 'link-3');">ParsingResponseError</a></tt><tt class="py-op">(</tt><tt class="py-string">"Error creating installation"</tt><tt class="py-op">,</tt> <tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">    <tt class="py-comment"># Save user and check for errors and consistency</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">    <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt id="link-40" class="py-name" targets="Function yaklient.api.parseapi._save_user()=yaklient.api.parseapi-module.html#_save_user"><a title="yaklient.api.parseapi._save_user" class="py-name" href="#" onclick="return doclink('link-40', '_save_user', 'link-40');">_save_user</a></tt><tt class="py-op">(</tt><tt class="py-name">user_id</tt><tt class="py-op">,</tt> <tt class="py-name">iid</tt><tt class="py-op">,</tt> <tt class="py-name">object_id</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt class="py-name">json</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">"result"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"data"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">"channels"</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">!=</tt> <tt class="py-name">user_id</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-41" class="py-name"><a title="yaklient.helper.ParsingResponseError" class="py-name" href="#" onclick="return doclink('link-41', 'ParsingResponseError', 'link-3');">ParsingResponseError</a></tt><tt class="py-op">(</tt><tt class="py-string">"Error saving user"</tt><tt class="py-op">,</tt> <tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt class="py-name">KeyError</tt><tt class="py-op">,</tt> <tt class="py-name">ValueError</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt id="link-42" class="py-name"><a title="yaklient.helper.ParsingResponseError" class="py-name" href="#" onclick="return doclink('link-42', 'ParsingResponseError', 'link-3');">ParsingResponseError</a></tt><tt class="py-op">(</tt><tt class="py-string">"Error saving user"</tt><tt class="py-op">,</tt> <tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">iid</tt><tt class="py-op">,</tt> <tt class="py-name">object_id</tt> </tt>
+</div><a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yaklient-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Wed Jun 10 13:29:57 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
