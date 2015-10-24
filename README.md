@@ -23,6 +23,8 @@ for yak in user.get_yaks():
     
 ### More things
 
+View doc/index.html to see the class structure and how to use each class. Email me if you have any questions.
+
 ### Dependencies
 
 - [Python 2.7](https://www.python.org/downloads/)
