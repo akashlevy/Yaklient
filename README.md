@@ -10,6 +10,9 @@ Yaklient is an intuitive Python library for interacting with Yik Yak's API.
 ### Example Usage
 
 ```python
+# Import client classes from Yaklient
+from yaklient import *
+
 # Specify location of University of Exeter on a map
 exeter = Location(50.7365, -3.5344)
 
