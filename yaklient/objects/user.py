@@ -118,10 +118,10 @@ class User(object):
 
     def _get_yak_list(self, raw_data):
         """Return list of Yaks from raw"""
-        try:
-            yaks = [Yak(raw, self) for raw in raw_data.json()["messages"]]
-        except (KeyError, ValueError):
-            raise ParsingResponseError("Getting Yak list failed", raw_data)
+        #try:
+        yaks = [Yak(raw, self) for raw in raw_data.json()["messages"]]
+        #except (KeyError, ValueError):
+        #    raise ParsingResponseError("Getting Yak list failed", raw_data)
         # If no Yaks, return empty list
         if yaks == []:
             return yaks
@@ -145,7 +145,7 @@ class User(object):
         if parse_register:
             parseapi.register_user(self.user_id)
         if yikyak_register:
-            return bool(int(yikyakapi.register_user(self).text))
+            yikyakapi.register_user(self)
 
     def update(self):
         """Update Yakarma and basecamp information"""
@@ -284,7 +284,7 @@ class User(object):
         liked = self.get_yak(message_id).liked
         yikyakapi.like_message(self, message_id, basecamp)
         self.update()
-        return self.get_yak(message_id).text != liked
+        return self.get_yak(message_id).liked != liked
 
     def downvote_yak(self, yak, basecamp=False):
         """Downvote/undownvote a Yak (optionally at basecamp). Return True if

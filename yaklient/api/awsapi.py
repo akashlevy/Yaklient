@@ -54,5 +54,5 @@ class AWSAuth(AuthBase):
         msg = "PUT\n\n%s\n%s\n%s" % (content_type, date_string, self.resource)
         signature = hash_msg(self.secret_key, msg)
         r.headers["Date"] = date_string
-        r.headers['Authorization'] = "AWS %s:%s" % (self.access_key, signature)
+        r.headers["Authorization"] = "AWS %s:%s" % (self.access_key, signature)
         return r

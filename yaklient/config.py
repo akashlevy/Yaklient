@@ -4,6 +4,7 @@
 
 import re
 import yaklient.settings as settings
+from hashlib import md5
 from random import choice, randint
 from requests import Session
 from string import ascii_uppercase, digits
@@ -134,3 +135,9 @@ def get_yakarma_threshold():
     """Return the Yakarma threshold from Yik Yak server"""
     conf = get_config()
     return int(conf["yikYakRepApplicationConfiguration"]["yakarmaThreshold"])
+
+
+def get_token():
+    """Return the token for authenticating request to the Yik Yak server"""
+    user_agent = get_user_agent(append_yikyak_version=False)
+    return md5(user_agent).hexdigest()    

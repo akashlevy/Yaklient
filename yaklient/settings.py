@@ -5,13 +5,13 @@
 # Yik Yak API Parameters
 YIKYAK_APIKEY = "EF64523D2BD1FA21F18F5BC654DFC41B"
 YIKYAK_ENDPOINT = "https://us-central-api.yikyakapi.net/api/"
-YIKYAK_VERSION = "2.6.3"
+YIKYAK_VERSION = "2.7.3"
 YIKYAK_VERSION_LETTER = "e"
 
 
 # Parse API Parameters
-PARSE_APPID = None
-PARSE_CLIENTKEY = None
+PARSE_APPID = "wMkdjBI4ircsNcRn8mXnBkgH0dwOcrkexrdMY3vY"
+PARSE_CLIENTKEY = "GbNFwvFgoUu1wYuwIexNImy8bnSlNhqssG7gd53Y"
 PARSE_ENDPOINT = "https://api.parse.com/2/"
 PARSE_VERSION = "1.7.1"
 PARSE_VERSION_LETTER = "a"

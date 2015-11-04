@@ -2,13 +2,12 @@
 
 """A low-level API for Yik Yak, providing access to all the basic functions"""
 
-from hashlib import md5
 from requests import Session
 from time import time
 from urllib import urlencode, unquote
 from urlparse import urljoin
 from yaklient import settings
-from yaklient.config import get_user_agent
+from yaklient.config import get_token, get_user_agent
 from yaklient.helper import generate_id, hash_msg
 
 
@@ -36,13 +35,11 @@ def _send(method, url, endpoint, params, data=None):
 
 def register_user(user):
     """Return raw response data from registering user"""
-    user_agent = get_user_agent(append_yikyak_version=False)
-    md5hash = md5(user_agent).hexdigest()
     params = [("accuracy", user.location.accuracy),
               ("deviceID", generate_id(dashes=False, upper=True)),
               ("lat", user.location.latitude),
               ("long", user.location.longitude),
-              ("token", md5hash),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -53,6 +50,7 @@ def get_message(user, message_id):
     """Return raw response data for a message (ID: message_id) using user"""
     params = [("accuracy", user.location.accuracy),
               ("messageID", message_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -68,6 +66,7 @@ def get_messages(user, location, basecamp=0):
               ("bc", int(basecamp)),
               ("lat", location.latitude),
               ("long", location.longitude),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -81,6 +80,7 @@ def get_peek_messages(user, peek_id):
               ("lat", user.location.latitude),
               ("long", user.location.longitude),
               ("peekID", peek_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -96,6 +96,7 @@ def hot(user, location, basecamp=0):
               ("bc", int(basecamp)),
               ("lat", location.latitude),
               ("long", location.longitude),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -107,6 +108,7 @@ def yaks(user, location):
     params = [("accuracy", user.location.accuracy),
               ("lat", location.latitude),
               ("long", location.longitude),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -118,6 +120,7 @@ def get_my_recent_yaks(user):
     params = [("accuracy", user.location.accuracy),
               ("lat", user.location.latitude),
               ("long", user.location.longitude),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -129,6 +132,7 @@ def get_my_recent_replies(user):
     params = [("accuracy", user.location.accuracy),
               ("lat", user.location.latitude),
               ("long", user.location.longitude),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -150,6 +154,7 @@ def get_area_tops(user):
     """Return raw response data for top Yaks in area"""
     params = [("lat", user.location.latitude),
               ("long", user.location.longitude),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -168,6 +173,7 @@ def get_comments(user, message_id, basecamp=0):
               ("lat", location.latitude),
               ("long", location.longitude),
               ("messageID", message_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -180,6 +186,7 @@ def like_message(user, message_id, basecamp=0):
     params = [("accuracy", user.location.accuracy),
               ("bc", int(basecamp)),
               ("messageID", message_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -192,6 +199,7 @@ def downvote_message(user, message_id, basecamp=0):
     params = [("accuracy", user.location.accuracy),
               ("bc", int(basecamp)),
               ("messageID", message_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -204,6 +212,7 @@ def like_comment(user, comment_id, basecamp=0):
     params = [("accuracy", user.location.accuracy),
               ("bc", int(basecamp)),
               ("commentID", comment_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -218,6 +227,7 @@ def downvote_comment(user, comment_id, message_id, basecamp=0):
               ("bc", int(basecamp)),
               ("commentID", comment_id),
               ("messageID", message_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -237,6 +247,7 @@ def report_message(user, message_id, reason, basecamp=0):
               ("long", location.longitude),
               ("messageID", message_id),
               ("reason", reason),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -258,6 +269,7 @@ def report_comment(user, comment_id, message_id, reason, basecamp=0):
               ("long", location.longitude),
               ("messageID", message_id),
               ("reason", reason),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -276,6 +288,7 @@ def delete_message(user, message_id, basecamp=0):
               ("lat", location.latitude),
               ("long", location.longitude),
               ("messageID", message_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -296,6 +309,7 @@ def delete_comment(user, comment_id, message_id, basecamp=0):
               ("lat", location.latitude),
               ("long", location.longitude),
               ("messageID", message_id),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -306,6 +320,7 @@ def log_event(user, event_type):
     """Return raw response data from logging an app event of type event_type
     using user"""
     params = [("accuracy", user.location.accuracy),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -324,6 +339,7 @@ def send_message(user, message, handle=None, btp=0, basecamp=0):
     else:
         location = user.location
     params = [("bc", int(basecamp)),
+              ("token", get_token()),
               ("userID", user.user_id)]
     data = [("bypassedThreatPopup", int(btp)),
             ("lat", location.latitude),
@@ -344,6 +360,7 @@ def post_comment(user, comment, message_id, btp=0, basecamp=0):
         location = user.location
     params = [("accuracy", user.location.accuracy),
               ("bc", int(basecamp)),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -359,7 +376,8 @@ def submit_peek_message(user, message, peek_id, handle=None, btp=0):
     """Return raw response data from submitting a peek message with an optional
     handle at peek location with ID peek_id using user (optionally with
     parameter bypassedThreatPopup as btp)"""
-    params = [("userID", user.user_id)]
+    params = [("token", get_token()),
+              ("userID", user.user_id)]
     data = [("bypassedThreatPopup", int(btp)),
             ("lat", user.location.latitude),
             ("long", user.location.longitude),
@@ -374,7 +392,8 @@ def submit_peek_message(user, message, peek_id, handle=None, btp=0):
 def contact_us(user, message, category, email):
     """Return raw response data from contacting Yik Yak with message in
     particular category using user with specified email"""
-    params = [("userID", user.user_id)]
+    params = [("token", get_token()),
+              ("userID", user.user_id)]
     data = [("category", category),
             ("email", email),
             ("message", message)]
@@ -385,6 +404,7 @@ def get_basecamps(user):
     """Return raw response data for all basecamps of user"""
     params = [("lat", user.location.latitude),
               ("long", user.location.longitude),
+              ("token", get_token()),
               ("userID", user.user_id),
               ("userLat", user.location.latitude),
               ("userLong", user.location.longitude)]
@@ -393,7 +413,8 @@ def get_basecamps(user):
 
 def save_basecamp(user, name, location):
     """Return raw response data from saving a basecamp"""
-    params = [("userID", user.user_id)]
+    params = [("token", get_token()),
+              ("userID", user.user_id)]
     data = [("bcLat", location.latitude),
             ("bcLong", location.longitude),
             ("bcName", name),

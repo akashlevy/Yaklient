@@ -25,25 +25,28 @@ class Yak(Message):
         self.loaded = raw["messageID"][:2] == "R/"
         self.location = Location(latitude, longitude)
         self.message = raw["message"]
-        self.type = raw["type"]
+        self.type = int(raw["type"])
 
         # If Yak is not fully loaded
-        if self.loaded:
+        try:
             self.gmt = raw["gmt"]
-            self.handle = raw["handle"]
             self.read_only = bool(raw["readOnly"])
             self.score = raw["score"]
-        else:
+        except KeyError:
             self.gmt = None
-            self.handle = None
             self.read_only = None
             self.score = None
+            
+        # If handle is present
+        try:
+            self.handle = raw["handle"]
+        except KeyError:
+            self.handle = None
 
         # If Yak contains a picture
         if self.type == YAK_TYPE_PICTURE:
-            self.expand_in_feed = bool(raw["expandInFeed"])
-            self.thumbnail_url = raw["thumbnailURL"]
             self.url = raw["url"]
+            self.expand_in_feed = bool(raw["expandInFeed"])
         else:
             self.expand_in_feed = None
             self.thumbnail_url = None
