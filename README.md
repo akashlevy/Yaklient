@@ -4,7 +4,6 @@
 ![PEP8](https://img.shields.io/badge/PEP8-100%25-brightgreen.svg "PEP8")
 
 Yaklient is an intuitive Python library for interacting with Yik Yak's API.
-CREATING USERS MAY NOT BE WORKING RIGHT NOW!
 
 ![Logo](https://raw.githubusercontent.com/akashlevy/Yaklient/master/ext/yaklient-logo.png "Logo")
 
