@@ -26,7 +26,7 @@ for yak in user.get_yaks():
     
 ### More things
 
-View doc/index.html to see the class structure and how to use each class. Email me if you have any questions.
+View doc/index.html to see the class structure and how to use each class. Email me if you have any questions. I have provided 25 working userids in the USERIDS file. If you make a working app with Yaklient and need the Yik Yak Parse API key to create more users, let me know and I will give it to you (I have not included it in the library so that people do not spam Yik Yak). See the issues for a list of things that don't work in this library.
 
 ### Dependencies
 
