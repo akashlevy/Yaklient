@@ -33,3 +33,13 @@ View doc/index.html to see the class structure and how to use each class. Email 
 - [Python 2.7](https://www.python.org/downloads/)
 - [requests](https://github.com/kennethreitz/requests)
 - [requests-oauthlib](https://github.com/requests/requests-oauthlib)
+
+### Things you can and should do with this library:
+- Do analytics on Yaks posted at any location in the world!
+- Change your basecamp!
+- Post/read Yaks anywhere in the world!
+- Port this library to another programming language and make a Yik Yak clone!
+
+### Things you could but shouldn't do with this library:
+- Create a bunch of users (a Yakarmy) and take over Yik Yak (upvote your own Yaks to the top, downvote others' Yaks to oblivion, etc.)
+- Spam Yik Yak
