@@ -40,15 +40,4 @@ def upvoter(message_id, votes):
         print "Created user %d" % i
         threading.Timer(80, upvoter_helper, [i, user, message_id]).start()
 
-# Import client classes from Yaklient
-from yaklient import *
-
-# Specify location of University of Exeter on a map
-princeton = Location(40.3571, -74.6702)
-
-# Create user object at University of Exeter with given userid
-user = User(princeton)
-
-# Get yaks, iterate through them, and print them
-for yak in user.get_yaks():
-    print yak, yak.message_id
+upvoter("R/56bbb82a1e0044b78bcbe8e68d3d3", 30)

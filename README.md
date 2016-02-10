@@ -1,4 +1,4 @@
-# Yaklient (NOW DEFUNCT DUE TO API CHANGES)
+# Yaklient
 ![Docs](https://img.shields.io/badge/docs-latest-brightgreen.svg "Docs")
 ![License](https://img.shields.io/badge/license-MIT-blue.svg "License")
 ![PEP8](https://img.shields.io/badge/PEP8-100%25-brightgreen.svg "PEP8")
