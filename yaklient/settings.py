@@ -41,22 +41,22 @@ CONFIG_URL = "https://d3436qb9f9xu23.cloudfront.net/yikyak-config-android.json"
 
 # Device Settings (for User Agent)
 VM_TYPE = "Dalvik"
-VM_VERSION = "2.1.0"
-ANDROID_VERSION = "5.1"
-DEVICE = "Android SDK built for x86"
-BUILD = "LKY45"
+VM_VERSION = "1.6.0"
+ANDROID_VERSION = "4.0.5"
+DEVICE = "google_sdk"
+BUILD = "MR1"
 
 
 # Options for randomize_user_agent()
-VM_VERSIONS = ["2.1.0"]
-ANDROID_VERSIONS = ["5.1"]
-BUILD_STRING_LENGTHS = [5]
+VM_VERSIONS = ["1.7.0", "1.8.0", "1.8.1"]
+ANDROID_VERSIONS = ["4.0.4", "4.5", "4.3", "5.1"]
+BUILD_STRING_LENGTHS = [3, 4, 5]
 DEVICES = ["Nexus 4", "Nexus 5", "HTC One_M8", "SM-N900V", "XT1080",
            "SM-G900V", "SCH-I545", "Android SDK built for x86"]
 
 
 # Randomization options
-RANDOMIZE_USER_AGENT = False
+RANDOMIZE_USER_AGENT = True
 RANDOMIZE_ENDPOINT = False
 LOCATIONIZE_ENDPOINT = False
 
